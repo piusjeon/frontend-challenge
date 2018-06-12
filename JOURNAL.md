@@ -9,7 +9,7 @@ It will include a history of the steps I took, the challenges I faced and the de
 
 ## Tuesday, 12 Jun 2018
 
-### 5pm
+### 5.00pm - 5.10pm
 
 - Forked repository.
 - Chose Jetbrains Webstorm as editor of choice. Great for alrge projects and teams.
@@ -20,7 +20,7 @@ It will include a history of the steps I took, the challenges I faced and the de
 v6.1.0
 ```
 
-### 5.10pm
+### 5.10pm - 5.25pm
 - Goal - create React App
 - Choice - create using [create-react-redux-router-app](https://www.npmjs.com/package/create-react-redux-router-app)
 - Reason - it includes boilerplate for redux, thunk and router, which is necessary for a large project 
@@ -44,7 +44,7 @@ v6.1.0
 + react-router-dom@4.3.1
 ```
 
-### 5.25pm
+### 5.25pm - 6.25pm
 - study bootstrapped files.
 - the app was created inside this project. `frontend-challenge/qctrl-frontend-challenge`
 - I'm not sure if this is what I want, but I guess the app files are separated from the challenge files, so that's good.
@@ -53,13 +53,21 @@ v6.1.0
 out for now as I want to see raw performance.
 - comment out the `registerServiceWorker` import `index.js`
 - Follow the provided guide in [Readme.md](./qctrl-frontend-challenge/README.md) to get an intro on basics
-- failed `npm test` 
+- failed `npm test` out of the box
 ```text
 Could not find "store" in either the context or props of "Connect(App)". Either wrap the root component in a , or explicitly pass "store" as a prop to "Connect(App)".
 ```
 - Eventually figured out that the test file ran the App component without the Provider with the store. 
+- the `index.js` file was responsible for connecting redux and react. I think the App component should do that.
 - passed the test after fix
 - commit progress
+- take a dinner break
+
+### 7.00pm - 7.15pm
+- Make the App component responsible for connecting redux to react
+- The Provider should be outside the Root Component. That means it should be outside App and in the index.js
+- Revert back to how it was. Don't waste time on such nonsense anymore.
+- commit update to journal
 
 
 
