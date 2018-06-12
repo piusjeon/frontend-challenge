@@ -70,7 +70,7 @@ explicitly pass "store" as a prop to "Connect(App)".
 - Revert back to how it was. Don't waste time on such nonsense anymore.
 - commit update to journal
 
-### 7.18pm
+### 7.18pm - 8:25pm
 - create routes and components for pages required in challenge starting with stub content.
 - create a Header Component
 - Create a ListEvaluations Component
@@ -91,6 +91,11 @@ the route updates at this point.
 - I'm changing this to `export default App` until i start using the store.
 - commit changes
 
+### 8.25pm - 8.31pm
+- restructure files into logical folders
+- use, components, containers, images, styles, actions, reducers
+- WebStorm automagically updates imports +1
+- commit changes
 
 
 

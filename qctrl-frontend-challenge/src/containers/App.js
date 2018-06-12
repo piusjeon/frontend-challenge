@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Switch} from 'react-router-dom'
 import {Route} from 'react-router-dom'
-import Header from './Header'
+import Header from '../components/Header'
 import ListEvaluations from './ListEvaluations'
 import ViewEvaluation from './ViewEvaluation'
 
