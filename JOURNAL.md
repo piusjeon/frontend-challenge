@@ -55,7 +55,8 @@ out for now as I want to see raw performance.
 - Follow the provided guide in [Readme.md](./qctrl-frontend-challenge/README.md) to get an intro on basics
 - failed `npm test` out of the box
 ```text
-Could not find "store" in either the context or props of "Connect(App)". Either wrap the root component in a , or explicitly pass "store" as a prop to "Connect(App)".
+Could not find "store" in either the context or props of "Connect(App)". Either wrap the root component in a, or 
+explicitly pass "store" as a prop to "Connect(App)".
 ```
 - Eventually figured out that the test file ran the App component without the Provider with the store. 
 - the `index.js` file was responsible for connecting redux and react. I think the App component should do that.
@@ -63,12 +64,32 @@ Could not find "store" in either the context or props of "Connect(App)". Either 
 - commit progress
 - take a dinner break
 
-### 7.00pm - 7.15pm
+### 7.00pm - 7.17pm
 - Make the App component responsible for connecting redux to react
 - The Provider should be outside the Root Component. That means it should be outside App and in the index.js
 - Revert back to how it was. Don't waste time on such nonsense anymore.
 - commit update to journal
 
+### 7.18pm
+- create routes and components for pages required in challenge starting with stub content.
+- create a Header Component
+- Create a ListEvaluations Component
+- Include Header and ListEvaluations in App
+- Create a ViewEvaluation Component
+- Link routes for `/` and `/evaluations/:id`
+- Problem: clicking a link updated the url but the rendered component doesn't change without a refresh
+- In App.js where I define the Route's, the export uses the connect function
+```text
+export default connect(
+	state => ({}),
+
+	{}
+)(App)
+```
+- This overrides the `shouldComponentUpdate` function. I'm guessing its because the store's state should be controlling 
+the route updates at this point. 
+- I'm changing this to `export default App` until i start using the store.
+- commit changes
 
 
 
