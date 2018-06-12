@@ -97,5 +97,15 @@ the route updates at this point.
 - WebStorm automagically updates imports +1
 - commit changes
 
+### 8.31pm - 10.00pm
+- set up reducers and actions
+- invoke an action from ListEvaluations which fetches the evaluations and just prints them out to console
+- action names defined in `actions/types` file
+- control fetch headers using api.json defined in `utils/api`
+- define `API_ROOT` as config in `config/api`
+- still no updates to store yet.
+- update journal
+- commit changes
+- take a break
 
 

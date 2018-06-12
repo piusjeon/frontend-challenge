@@ -1,22 +1,18 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
-import ReduxThunk from 'redux-thunk'
+import {createStore, applyMiddleware, compose} from 'redux'
+import thunk from 'redux-thunk'
+import rootReducer from './reducers'
 
-const initialState = {}
+const middleware = [thunk];
+const enhancers = [];
 
-const AppReducer = (state=initialState, action) => {
-  switch (action.type) {
-    case 'ACTION':
-      return state
-    default:
-      return state
-  }
-}
+const composedEnhancers = compose(
+	applyMiddleware(...middleware),
+	...enhancers
+);
 
-export default createStore(
-  combineReducers({
-    app: AppReducer
-  }),
-  applyMiddleware(
-    ReduxThunk
-  )
-)
+const store = createStore(
+	rootReducer,
+	composedEnhancers
+);
+
+export default store
