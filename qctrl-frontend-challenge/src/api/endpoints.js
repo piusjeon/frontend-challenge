@@ -1,2 +1,2 @@
-export const ENDPOINT_EVALUATIONS = '/evaluations';
+export const ENDPOINT_EVALUATIONS = '/evaluations/';
 

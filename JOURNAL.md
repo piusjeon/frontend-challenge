@@ -109,6 +109,8 @@ the route updates at this point.
 - enough for the day
 
 ## Wednesday 13 Jun 2018
+
+### 8.00pm - 8.15pm
 - make the api handlers more framework friendly
 - put api related stuff in the `src/api` directory
 - refactor `api.js` -> `src/api/index.js` usage `import {fetchApi, postApi} from ./api`
@@ -116,6 +118,15 @@ the route updates at this point.
 - choose better naming for constants, `DO_NOTHING` -> `ACTION_DO_NOTHING`, `EVALUATIONS` -> `ENDPOINT_EVALUTAIONS`
 - commit changes
 
-
+### 8.15pm
+- enough time wasting, lets structure and save to our store
+- read up on best practise for normalising the Redux store (because performance)
+- use [Normalizr](https://github.com/paularmstrong/normalizr)? 
+- 6 issues, 3 PRs, 34 releases = HELL NO. I've been burnt by being stuck with sh*tty frameworks before. Best to roll our own if needed.
+- Rules for normalizing a redux store
+- Keep tables for each entity just like a relational database
+- store each entity with the id as the key and the entity as the value
+- for lists of entities, only store arrays of ids to keep the order
+- for sub-entities/relations, only store the id (or array of ids) as a property of the entity
 
 
