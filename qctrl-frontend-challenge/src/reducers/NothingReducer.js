@@ -1,10 +1,10 @@
-import { DO_NOTHING } from '../actions/types'
+import { ACTION_DO_NOTHING } from '../actions/types'
 
 const initialState = {};
 
 const NothingReducer = (state=initialState, action) => {
 	switch (action.type) {
-		case DO_NOTHING:
+		case ACTION_DO_NOTHING:
 			console.log('reducer: ', action);
 			return state
 		default:

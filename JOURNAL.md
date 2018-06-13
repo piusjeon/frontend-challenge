@@ -106,6 +106,16 @@ the route updates at this point.
 - still no updates to store yet.
 - update journal
 - commit changes
-- take a break
+- enough for the day
+
+## Wednesday 13 Jun 2018
+- make the api handlers more framework friendly
+- put api related stuff in the `src/api` directory
+- refactor `api.js` -> `src/api/index.js` usage `import {fetchApi, postApi} from ./api`
+- define api endpoints as importable constants in `api/endpoints`
+- choose better naming for constants, `DO_NOTHING` -> `ACTION_DO_NOTHING`, `EVALUATIONS` -> `ENDPOINT_EVALUTAIONS`
+- commit changes
+
+
 
 

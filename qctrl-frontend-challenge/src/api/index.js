@@ -6,11 +6,13 @@ const initDefault = {
 	}
 };
 
-const fetchAPI = (path, init) => {
+export const fetchApi = (path, init) => {
 	return fetch(API_ROOT + path, {
 		...initDefault,
 		...init
 	})
 };
 
-export default fetchAPI
+export const postApi = (path, init) => {
+	throw "not implemented"
+}

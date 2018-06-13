@@ -1,1 +1,1 @@
-export const API_ROOT = 'http://q-ctrl-api.appspot.com/';
+export const API_ROOT = 'http://q-ctrl-api.appspot.com';

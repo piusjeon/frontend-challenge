@@ -1,1 +1,1 @@
-export const DO_NOTHING = 'DO_NOTHING';
+export const ACTION_DO_NOTHING = 'ACTION_DO_NOTHING';
