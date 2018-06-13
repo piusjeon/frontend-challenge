@@ -73,9 +73,9 @@ explicitly pass "store" as a prop to "Connect(App)".
 ### 7.18pm - 8:25pm
 - create routes and components for pages required in challenge starting with stub content.
 - create a Header Component
-- Create a ListEvaluations Component
-- Include Header and ListEvaluations in App
-- Create a ViewEvaluation Component
+- Create a EvaluationList Component
+- Include Header and EvaluationList in App
+- Create a EvaluationPage Component
 - Link routes for `/` and `/evaluations/:id`
 - Problem: clicking a link updated the url but the rendered component doesn't change without a refresh
 - In App.js where I define the Route's, the export uses the connect function
@@ -99,7 +99,7 @@ the route updates at this point.
 
 ### 8.31pm - 10.00pm
 - set up reducers and actions
-- invoke an action from ListEvaluations which fetches the evaluations and just prints them out to console
+- invoke an action from EvaluationList which fetches the evaluations and just prints them out to console
 - action names defined in `actions/types` file
 - control fetch headers using api.json defined in `utils/api`
 - define `API_ROOT` as config in `config/api`
@@ -115,18 +115,31 @@ the route updates at this point.
 - put api related stuff in the `src/api` directory
 - refactor `api.js` -> `src/api/index.js` usage `import {fetchApi, postApi} from ./api`
 - define api endpoints as importable constants in `api/endpoints`
-- choose better naming for constants, `DO_NOTHING` -> `ACTION_DO_NOTHING`, `EVALUATIONS` -> `ENDPOINT_EVALUTAIONS`
 - commit changes
 
-### 8.15pm
+### 8.15pm - 1.00am
 - enough time wasting, lets structure and save to our store
 - read up on best practise for normalising the Redux store (because performance)
 - use [Normalizr](https://github.com/paularmstrong/normalizr)? 
-- 6 issues, 3 PRs, 34 releases = HELL NO. I've been burnt by being stuck with sh*tty frameworks before. Best to roll our own if needed.
+- 6 issues, 3 PRs, 34 releases = HELL NO. I've been burnt by being stuck with sh*tty frameworks before. 
+Best to roll our own if needed.
 - Rules for normalizing a redux store
 - Keep tables for each entity just like a relational database
 - store each entity with the id as the key and the entity as the value
 - for lists of entities, only store arrays of ids to keep the order
 - for sub-entities/relations, only store the id (or array of ids) as a property of the entity
-
-
+- any full data entity is now called an "Entity"
+- Each entity type is defined in `entities/types`
+- Each Entity has its own reducer
+- Each Entity store holds a key:entity pair and a full array of ids
+- The links, meta and an array of evaluation ids fetched are tracked by a Page reducer
+- anytime we store an array of entities tied to either a page or another entity, store them as an array of `{type, id}` 
+objects
+- i think it would be good practise to separate the page ui state from the entity states.
+- the page ui can hold the pagination links and meta data and also a temporary array of ids which will be updated on 
+each new pagination load. The laoding states for the page will also be added here.
+- the page array of evaluations will hold the currently visible entities, while the entity store keeps a hashed copy of the most recent state of the entities
+- on the list page, connect the page store and the evaluations store. Then iterate through the evaluation ids from the 
+page store and look up the full evaluation entity from the evaluation store.
+- render an EvaluationListItem component and pass it the full evaluation to each component.
+- commit changes

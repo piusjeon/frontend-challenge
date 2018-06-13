@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {Switch} from 'react-router-dom'
 import {Route} from 'react-router-dom'
 import Header from '../components/Header'
-import ListEvaluations from './ListEvaluations'
-import ViewEvaluation from './ViewEvaluation'
+import ListEvaluations from './EvaluationList'
+import ViewEvaluation from './EvaluationPage'
 
 class App extends Component {
 	render() {

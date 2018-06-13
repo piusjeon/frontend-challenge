@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-class ViewEvaluation extends Component {
+class EvaluationPage extends Component {
 	render() {
 		return (
       <p className="view-evaluation">
@@ -16,4 +16,4 @@ export default connect(
 
 	}),
 	{}
-)(ViewEvaluation)
+)(EvaluationPage)

@@ -5,7 +5,7 @@ const defaultHeaders = {
 	'Content-Type': 'application/vnd.api+json'
 };
 
-const mapObjectToParams = (obj) => {
+const mapObjectToParams = obj => {
 	let url = '';
 
 	if (!isEmpty(obj)) {
