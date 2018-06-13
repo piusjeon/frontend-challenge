@@ -5,6 +5,7 @@ import store from "../store";
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
+// noinspection JSUnresolvedFunction
 it('renders without crashing', () => {
 	const div = document.createElement('div');
 	ReactDOM.render(

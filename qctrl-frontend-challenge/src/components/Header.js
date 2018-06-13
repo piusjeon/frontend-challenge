@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import logo from '../images/logo.svg'
 import '../styles/App.css'
-import {connect} from 'react-redux'
 import {Link} from "react-router-dom";
 
 class Header extends Component {
@@ -15,7 +14,4 @@ class Header extends Component {
 	}
 }
 
-export default connect(
-	state => ({}),
-	{}
-)(Header)
+export default Header

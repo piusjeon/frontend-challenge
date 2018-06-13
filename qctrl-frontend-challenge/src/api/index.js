@@ -27,6 +27,7 @@ export const fetchApi = (path, params = {}, init = {}) => {
 	})
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const postApi = (path, data = {}, params = {}, init = {}) => {
 	let url = API_ROOT + path + mapObjectToParams(params);
 

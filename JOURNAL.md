@@ -49,9 +49,6 @@ v6.1.0
 - the app was created inside this project. `frontend-challenge/qctrl-frontend-challenge`
 - I'm not sure if this is what I want, but I guess the app files are separated from the challenge files, so that's good.
 - There are two `node_modules` folders. I don't know why and it tickles my OCD. I'll leave it for now.
-- There is a `registerServiceWorker.js` file. I've heard of these. I'd love to check it out but I'm going to take it 
-out for now as I want to see raw performance.
-- comment out the `registerServiceWorker` import `index.js`
 - Follow the provided guide in [Readme.md](./qctrl-frontend-challenge/README.md) to get an intro on basics
 - failed `npm test` out of the box
 ```text

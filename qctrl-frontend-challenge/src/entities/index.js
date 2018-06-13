@@ -1,5 +1,8 @@
 export const reduceEntityDataArray = (entities, data = []) => {
-	return data.reduce( (obj, entity) => (obj[entity.id] = entity, obj), {})
+	return data.reduce( (obj, entity) => {
+		obj[entity.id] = entity;
+		return obj
+	}, {})
 };
 
 export const mapEntitiesToRelationData = entities => {

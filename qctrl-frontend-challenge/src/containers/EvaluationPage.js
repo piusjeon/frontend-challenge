@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
 class EvaluationPage extends Component {
 	render() {
@@ -11,9 +10,4 @@ class EvaluationPage extends Component {
 	}
 }
 
-export default connect(
-	state=>({
-
-	}),
-	{}
-)(EvaluationPage)
+export default EvaluationPage
