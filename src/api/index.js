@@ -1,25 +1,26 @@
-import {API_ROOT} from "../config/api"
 import {isEmpty} from "../utils/objects";
+
+export const API_ROOT = 'http://q-ctrl-api.appspot.com';
 
 const defaultHeaders = {
 	'Content-Type': 'application/vnd.api+json'
 };
 
-const mapObjectToParams = obj => {
-	let url = '';
+const mapParamsToQueryString = params => {
+	let queryString = '';
 
-	if (!isEmpty(obj)) {
-		url += '?';
+	if (!isEmpty(params)) {
+		queryString += '?';
 
-		for (let entry of Object.entries(obj))
-			url += entry.join('=')
+		for (let param of Object.entries(params))
+			queryString += param + '=' + encodeURIComponent(params[param])
 	}
 
-	return url
+	return queryString
 };
 
 export const fetchApi = (path, params = {}, init = {}) => {
-	let url = API_ROOT + path + mapObjectToParams(params);
+	let url = API_ROOT + path + mapParamsToQueryString(params);
 
 	return fetch(url, {
 		headers: defaultHeaders,
@@ -29,7 +30,7 @@ export const fetchApi = (path, params = {}, init = {}) => {
 
 // noinspection JSUnusedGlobalSymbols
 export const postApi = (path, data = {}, params = {}, init = {}) => {
-	let url = API_ROOT + path + mapObjectToParams(params);
+	let url = API_ROOT + path + mapParamsToQueryString(params);
 
 	return fetch(url, {
 		method: 'post',
