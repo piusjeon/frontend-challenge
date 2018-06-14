@@ -5,6 +5,12 @@ import chevronRight from '../images/chevron_right.svg'
 import {Link} from "react-router-dom";
 import {ENDPOINT_EVALUATIONS} from "../api/endpoints";
 
+const mapState = (state, ownProps) => ({
+	evaluation: state.evaluations.entities[ownProps.evaluationId]
+});
+
+const mapDispatch = {};
+
 class EvaluationListItem extends Component {
 	static propTypes = {
 		evaluation: PropTypes.object.isRequired,
@@ -27,12 +33,5 @@ class EvaluationListItem extends Component {
 		);
 	}
 }
-
-
-const mapState = (state, ownProps) => ({
-	evaluation: state.evaluations.entities[ownProps.evaluationId]
-});
-
-const mapDispatch = {};
 
 export default connect(mapState, mapDispatch)(EvaluationListItem)

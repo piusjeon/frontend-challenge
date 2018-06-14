@@ -21,7 +21,14 @@ export const metaPropType = PropTypes.shape({
 
 export const collectionDataPropType = {
 	data: dataPropType.isRequired,
-	links: linksPropType.isRequired,
-	meta: metaPropType.isRequired
+	links: linksPropType,
+	meta: metaPropType
 };
 
+export default {
+	dataPropType,
+	linksPropType,
+	paginationPropType,
+	metaPropType,
+	collectionDataPropType
+}

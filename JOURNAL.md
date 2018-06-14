@@ -49,7 +49,7 @@ v6.1.0
 - the app was created inside this project. `frontend-challenge/qctrl-frontend-challenge`
 - I'm not sure if this is what I want, but I guess the app files are separated from the challenge files, so that's good.
 - There are two `node_modules` folders. I don't know why and it tickles my OCD. I'll leave it for now.
-- Follow the provided guide in [Readme.md](./qctrl-frontend-challenge/README.md) to get an intro on basics
+- Follow the provided guide in [Readme.md](README_CREATE_REACT_APP.md) to get an intro on basics
 - failed `npm test` out of the box
 ```text
 Could not find "store" in either the context or props of "Connect(App)". Either wrap the root component in a, or 
@@ -163,5 +163,26 @@ sync errors between the BE and FE when changes happen.
 - commit changes
 
 ### Dinner break
+
+### 10.00pm - 1:30am
+- now that i can open an evaluation from a list lets fetch the evaluation with the pulse details
+- how do i get the id of the page defined from the route?
+- page props from router get `{history, location, match}`
+- `npm i react-router-prop-types --save`
+- wasted some time fixing up my directory structure
+- after having a bit of eslint problems with the react-router-prop-types module, i decided to take the parts i needed from
+the source. I generally don't like taking from libraries which aren't heavily supported and don't add too much value 
+(or have lots of issues/updates).
+- `npm uninstall react-router-prop-types --save`
+- created `ACTION_EVALUATIONS_GET` action in `actions/evaluations`
+- updated `reducers/evaluations` to merge the newly fetched data into the store (in an immutable/normalised way)
+- i decided not to update `reducers/pages` with the evaluation id. Usually this would be a no-op, because it just 
+stores an array of ids which we would already have if coming from the list page. If there was a change to the 
+evaluation, going back to the list page would show the updated evaluation details anyway (without any state changes to 
+the page). This is the power of Redux/normalisation.
+- created a pulse reducer to store pulses that have been included by the response.
+- the pulse reducer listens to the `ACTION_EVALUATIONS_GET` action as well and only looks at the included property of 
+the action payload. if it exists, it adds the pulse tot he store in an immutable/normalised way.
+- commit changes
 
 

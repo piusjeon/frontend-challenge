@@ -11,7 +11,7 @@ const mapObjectToParams = obj => {
 	if (!isEmpty(obj)) {
 		url += '?';
 
-		for (let entry in Object.entries(obj))
+		for (let entry of Object.entries(obj))
 			url += entry.join('=')
 	}
 

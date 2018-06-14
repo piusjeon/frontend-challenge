@@ -1,16 +1,24 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {fetchEvaluations} from "../actions/evaluations";
+import PropTypes from 'prop-types'
+import apiPropTypes from "../proptypes/apiPropTypes"
+import routerPropTypes from "../proptypes/routerPropTypes"
+import {fetchEvaluations} from "../actions/evaluations"
 import EvaluationListItem from "../components/EvaluationListItem"
-import {dataPropType, linksPropType, metaPropType} from "../api/types";
+
+const mapState = (state) => ({
+	...state.pages.evaluationList
+});
+
+const mapDispatch = {
+	fetchEvaluations
+};
 
 class EvaluationList extends Component {
 	static propTypes = {
-		fetchEvaluations: PropTypes.func.isRequired,
-		data: dataPropType.isRequired,
-		links: linksPropType,
-		meta: metaPropType
+		...routerPropTypes.propTypes,
+		...apiPropTypes.collectionDataPropType,
+		fetchEvaluations: PropTypes.func.isRequired
 	};
 
 	componentWillMount() {
@@ -20,8 +28,6 @@ class EvaluationList extends Component {
 	render() {
 		return (
 			<div className="list-evaluations">
-				list evaluations
-				<br/>
 				<table>
 					<tbody>
 						{this.props.data.map( ({id}) =>
@@ -34,13 +40,5 @@ class EvaluationList extends Component {
 		);
 	}
 }
-
-const mapState = (state) => ({
-	...state.pages.evaluationList
-});
-
-const mapDispatch = {
-	fetchEvaluations: fetchEvaluations
-};
 
 export default connect(mapState, mapDispatch)(EvaluationList)
