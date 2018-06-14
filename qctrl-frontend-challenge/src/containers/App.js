@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {Switch} from 'react-router-dom'
 import {Route} from 'react-router-dom'
 import Header from '../components/Header'
-import ListEvaluations from './EvaluationList'
-import ViewEvaluation from './EvaluationPage'
+import EvaluationList from './EvaluationList'
+import EvaluationPage from './EvaluationPage'
 
 class App extends Component {
 	render() {
@@ -11,8 +11,8 @@ class App extends Component {
 			<div className="App">
 				<Header/>
 				<Switch>
-					<Route exact path="/" component={ListEvaluations}/>
-					<Route path="/evaluations/:id" component={ViewEvaluation}/>
+					<Route exact path="/" component={EvaluationList}/>
+					<Route path="/evaluations/:id" component={EvaluationPage}/>
 				</Switch>
 			</div>
 		);

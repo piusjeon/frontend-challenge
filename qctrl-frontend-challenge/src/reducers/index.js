@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux'
-import Evaluations from './Evaluations'
-import Pages from './Pages'
+import evaluations from './evaluations'
+import pages from './pages'
 
-const RootReducer = combineReducers({
-	evaluations: Evaluations,
-	pages: Pages
+const rootReducer = combineReducers({
+	evaluations: evaluations,
+	pages: pages
 });
 
-export default RootReducer
+export default rootReducer

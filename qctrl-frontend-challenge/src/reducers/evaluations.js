@@ -8,7 +8,7 @@ const initialState = {
 	ids: []
 };
 
-const Evaluations = (state = initialState, action) => {
+const evaluations = (state = initialState, action) => {
 	switch (action.type) {
 		case ACTION_EVALUATIONS_FETCH:
 
@@ -20,7 +20,7 @@ const Evaluations = (state = initialState, action) => {
 				ids: Object.keys(newEntities)
 			};
 
-			console.log('reducer: Evaluations', state, action, newState);
+			console.log('reducer: evaluations', state, action, newState);
 
 			return newState;
 		default:
@@ -28,4 +28,4 @@ const Evaluations = (state = initialState, action) => {
 	}
 };
 
-export default Evaluations;
+export default evaluations;

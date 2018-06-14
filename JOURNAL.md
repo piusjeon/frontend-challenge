@@ -134,9 +134,34 @@ Best to roll our own if needed.
 objects
 - i think it would be good practise to separate the page ui state from the entity states.
 - the page ui can hold the pagination links and meta data and also a temporary array of ids which will be updated on 
-each new pagination load. The laoding states for the page will also be added here.
-- the page array of evaluations will hold the currently visible entities, while the entity store keeps a hashed copy of the most recent state of the entities
+each new pagination load. The loading states for the page will also be added here.
+- the page array of evaluations will hold the currently visible entities, while the entity store keeps a hashed copy of 
+the most recent state of the entities
 - on the list page, connect the page store and the evaluations store. Then iterate through the evaluation ids from the 
 page store and look up the full evaluation entity from the evaluation store.
 - render an EvaluationListItem component and pass it the full evaluation to each component.
 - commit changes
+
+## Thursday 14 Jun 2018
+
+### 7.15pm - 9.10pm
+- The way i connected the `EvaluationListItem`, means that all the components get recomputed when there is any change 
+to the list or its elements. By subscribing to both the page store and the entity store, I basically lose the all the 
+benefit of normalising the store. YAY.
+- This [Blog Post](https://blog.shovonhasan.com/pattern-for-rendering-lists-of-connected-components-with-react-redux/)
+describes the problem and solution perfectly.
+- Done. Also added link to open evaluation.
+- defined PropType groups in `api/types` for the page properties data, links, meta so i can reuse validation for the 
+data returned from the server
+- I'm thinking i should also use the above to validate the fetch evaluations response. This is good practise to catch 
+sync errors between the BE and FE when changes happen.
+- I think I should also create Entity classes which validates api data and parse into a more preferred structure for the store 
+- I'll create PropTypes for both api data validation and entity validation (when an entity is passed to a component)
+- Creating PropTypes for all data structures will serve as both validation and documentation of structures and types in the framework
+- i'll do this sometime soon
+- i just spent 30 mins reading debates on the web about using `.jsx` versus `.js` for files containing JSX. Don't do that. Also, use `.js`
+- commit changes
+
+### Dinner break
+
+

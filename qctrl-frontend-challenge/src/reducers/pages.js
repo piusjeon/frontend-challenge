@@ -4,12 +4,12 @@ import {mapEntitiesToRelationData} from "../entities"
 const initialState = {
 	evaluationList: {
 		data: [],
-		links: {},
-		meta: {}
+		links: null,
+		meta: null
 	}
 };
 
-const Pages = (state = initialState, action) => {
+const pages = (state = initialState, action) => {
 	switch (action.type) {
 		case ACTION_EVALUATIONS_FETCH:
 			const newState = {
@@ -21,11 +21,11 @@ const Pages = (state = initialState, action) => {
 				}
 			};
 
-			console.log('reducer: Pages', state, action, newState);
+			console.log('reducer: pages', state, action, newState);
 			return newState;
 		default:
 			return state
 	}
 };
 
-export default Pages;
+export default pages;
