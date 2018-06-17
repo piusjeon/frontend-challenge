@@ -1,4 +1,4 @@
-import {ACTION_EVALUATIONS_FETCH, ACTION_EVALUATIONS_GET} from '../actions/types'
+import {ACTION_EVALUATIONS_FETCH, ACTION_EVALUATIONS_GET, ACTION_EVALUATIONS_CREATE} from '../actions/types'
 import {ENTITY_EVALUATION} from "../entities/types"
 import {reduceEntityDataArray} from "../entities"
 
@@ -22,6 +22,7 @@ const evaluationsReducer = (state = initialState, action) => {
 			return newState;
 
 		case ACTION_EVALUATIONS_GET:
+		case ACTION_EVALUATIONS_CREATE:
 			newState.entities = {
 				...state.entities,
 				[action.payload.data.id]: action.payload.data

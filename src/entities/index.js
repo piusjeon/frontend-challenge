@@ -5,6 +5,8 @@ export const reduceEntityDataArray = (entities, data = []) => {
 	}, {})
 };
 
+export const mapEntityToRelationData = entity => ({type: entity.type, id: entity.id });
+
 export const mapEntitiesToRelationData = entities => {
-	return entities.map( entity => ({type: entity.type, id: entity.id }) )
+	return entities.map( mapEntityToRelationData )
 };

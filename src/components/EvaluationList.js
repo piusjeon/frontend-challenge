@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import apiPropTypes from "../proptypes/apiPropTypes"
-import routerPropTypes from "../proptypes/routerPropTypes"
 import {fetchEvaluations} from "../actions/evaluationsActions"
 import EvaluationListItem from "../components/EvaluationListItem"
 
@@ -16,13 +14,12 @@ const mapDispatch = {
 
 class EvaluationList extends Component {
 	static propTypes = {
-		...routerPropTypes.propTypes,
-		...apiPropTypes.collectionDataPropType,
+		evaluationIds: PropTypes.array.isRequired,
 		fetchEvaluations: PropTypes.func.isRequired
 	};
 
 	get evaluationIds() {
-		return this.props.data.map( ({id}) => id );
+		return this.props.evaluationIds;
 	}
 
 	componentWillMount() {
@@ -31,16 +28,13 @@ class EvaluationList extends Component {
 
 	render() {
 		return (
-			<div className="list-evaluations">
-				<table>
-					<tbody>
-						{this.evaluationIds.map( id =>
-							<EvaluationListItem key={id} evaluationId={id} />
-						)}
-					</tbody>
-				</table>
-				<br/>
-			</div>
+			<table className="list-evaluations">
+				<tbody>
+					{this.evaluationIds.map( id =>
+						<EvaluationListItem key={id} evaluationId={id} />
+					)}
+				</tbody>
+			</table>
 		)
 	}
 }

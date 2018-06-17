@@ -1,5 +1,5 @@
-import {ACTION_EVALUATIONS_FETCH} from '../actions/types'
-import {mapEntitiesToRelationData} from "../entities"
+import {ACTION_EVALUATIONS_CREATE, ACTION_EVALUATIONS_FETCH} from '../actions/types'
+import {mapEntitiesToRelationData, mapEntityToRelationData} from "../entities"
 
 const initialState = {
 	evaluationList: {
@@ -20,6 +20,16 @@ const pagesReducer = (state = initialState, action) => {
 				data: mapEntitiesToRelationData(action.payload.data),
 				links: action.payload.links,
 				meta: action.payload.meta,
+			};
+
+			return newState;
+
+		case ACTION_EVALUATIONS_CREATE:
+			const newEvaluationRelation = mapEntityToRelationData(action.payload.data);
+
+			newState.evaluationList = {
+				...state.evaluationList,
+				data:  [newEvaluationRelation, ...state.evaluationList.data]
 			};
 
 			return newState;

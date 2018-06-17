@@ -195,3 +195,22 @@ the action payload. if it exists, it adds the pulse tot he store in an immutable
 - connected pulse data from store to pulse components taking advantage of the normalising structure
 - commit changes 
 
+### Dinner Break
+
+### 8.00pm - 9.30pm
+- moved `EvaluationList` to a stand-alone component included by `EvaluationPage` 
+- create add new evaluation form
+- `npm install react-redux-form@latest --save`
+- created `CreateEvaluationModal` with react-redux-form
+
+### break
+
+### 9.30pm - 12.00am
+- put modal in EvaluationsPage
+- handle success post request with reducers
+- put the new evaluation in the entity store
+- put the new evaluation id at the front of the id array in the page store
+- handle closing of modal on clsoe button or successful submit
+- commit changes
+
+

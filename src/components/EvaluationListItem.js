@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import chevronRight from '../images/chevron_right.svg'
+import chevronRightSVG from '../images/chevron_right.svg'
 import {Link} from "react-router-dom"
 import {ENDPOINT_EVALUATIONS} from "../api/endpoints"
 
@@ -48,7 +48,7 @@ class EvaluationListItem extends Component {
 				<td>{this.shape}</td>
 				<td>{this.polarAngle}</td>
 				<td>{this.maxRabiRate}</td>
-				<td><Link to={this.link}><img src={chevronRight} className="chevron-right" alt="go to evaluation"/></Link></td>
+				<td><Link to={this.link}><img src={chevronRightSVG} className="chevron-right" alt="go to evaluation"/></Link></td>
 			</tr>
 		)
 	}

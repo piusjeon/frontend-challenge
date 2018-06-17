@@ -6,7 +6,9 @@
     "prop-types": "^15.6.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-redux-form": "^1.16.9",
     "react-scripts": "1.1.4",
+    "react-svg": "^4.0.17",
     "redux-logger": "^3.0.6"
   },
   "scripts": {
