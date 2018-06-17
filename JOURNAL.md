@@ -176,7 +176,7 @@ the source. I generally don't like taking from libraries which aren't heavily su
 - `npm uninstall react-router-prop-types --save`
 - created `ACTION_EVALUATIONS_GET` action in `actions/evaluations`
 - updated `reducers/evaluations` to merge the newly fetched data into the store (in an immutable/normalised way)
-- i decided not to update `reducers/pages` with the evaluation id. Usually this would be a no-op, because it just 
+- i decided not to update `reducers/pagesReducer` with the evaluation id. Usually this would be a no-op, because it just 
 stores an array of ids which we would already have if coming from the list page. If there was a change to the 
 evaluation, going back to the list page would show the updated evaluation details anyway (without any state changes to 
 the page). This is the power of Redux/normalisation.
@@ -185,7 +185,13 @@ the page). This is the power of Redux/normalisation.
 the action payload. if it exists, it adds the pulse tot he store in an immutable/normalised way.
 - commit changes
 
-## Sunday 4.30pm
+## Sunday 17 Jun 2018
 
+### 4.30pm - 5.50pm
 - fixed error in api/index mapParamsToQueryString
+- added `redux-logger` to framework
+- rename the reducers and actions files to include what they are in the filename
+- lets add connect the evaluation pulses as components on the `EvaluationPage`
+- connected pulse data from store to pulse components taking advantage of the normalising structure
+- commit changes 
 

@@ -7,7 +7,7 @@ const initialState = {
 	ids: []
 };
 
-const pulses = (state = initialState, action) => {
+const pulsesReducer = (state = initialState, action) => {
 	const newState = {
 		...state
 	};
@@ -44,4 +44,4 @@ const pulses = (state = initialState, action) => {
 	}
 };
 
-export default pulses;
+export default pulsesReducer;

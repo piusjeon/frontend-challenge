@@ -9,7 +9,7 @@ const initialState = {
 	}
 };
 
-const pages = (state = initialState, action) => {
+const pagesReducer = (state = initialState, action) => {
 	const newState = {
 		...state
 	};
@@ -29,4 +29,4 @@ const pages = (state = initialState, action) => {
 	}
 };
 
-export default pages;
+export default pagesReducer;

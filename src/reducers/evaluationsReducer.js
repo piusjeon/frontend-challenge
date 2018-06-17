@@ -8,7 +8,7 @@ const initialState = {
 	ids: []
 };
 
-const evaluations = (state = initialState, action) => {
+const evaluationsReducer = (state = initialState, action) => {
 	const newState = {
 		...state
 	};
@@ -36,4 +36,4 @@ const evaluations = (state = initialState, action) => {
 	}
 };
 
-export default evaluations;
+export default evaluationsReducer;

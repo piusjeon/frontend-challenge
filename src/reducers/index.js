@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux'
-import evaluations from './evaluations'
-import pulses from './pulses'
-import pages from './pages'
+import evaluationsReducer from './evaluationsReducer'
+import pulsesReducer from './pulsesReducer'
+import pagesReducer from './pagesReducer'
 
 export default combineReducers({
-	evaluations,
-	pulses,
-	pages
+	evaluations: evaluationsReducer,
+	pulses: pulsesReducer,
+	pages: pagesReducer
 })

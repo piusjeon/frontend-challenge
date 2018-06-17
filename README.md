@@ -135,7 +135,7 @@ Do not worry about the formatting of the chart, the standard formatting will be 
 You can view an evaluation in the API by making a `GET` request to
 `http://q-ctrl-api.appspot.com/evaluations/:id`.
 
-You can include the pulses for an evaluation by appending `?include=pulses` to
+You can include the pulses for an evaluation by appending `?include=pulsesReducer` to
 your request.
 
 #### Plot Points
