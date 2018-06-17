@@ -14,11 +14,10 @@ const evaluations = (state = initialState, action) => {
 	};
 
 	switch (action.type) {
+
 		case ACTION_EVALUATIONS_FETCH:
 			newState.entities = reduceEntityDataArray(state.entities, action.payload.data);
 			newState.ids = Object.keys(newState.entities);
-
-			console.log('evaluations reducer: ACTION_EVALUATIONS_FETCH', state, action, newState);
 
 			return newState;
 
@@ -29,8 +28,6 @@ const evaluations = (state = initialState, action) => {
 			};
 
 			newState.ids = Object.keys(newState.entities);
-
-			console.log('evaluations reducer: ACTION_EVALUATIONS_GET', state, action, newState);
 
 			return newState;
 

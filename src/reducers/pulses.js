@@ -15,7 +15,6 @@ const pulses = (state = initialState, action) => {
 	switch (action.type) {
 
 		case ACTION_EVALUATIONS_GET:
-
 			if (!action.payload.included)
 				return state;
 
@@ -37,8 +36,6 @@ const pulses = (state = initialState, action) => {
 			};
 
 			newState.ids = Object.keys(newState.entities);
-
-			console.log('pulses reducer: ACTION_EVALUATIONS_GET', state, action, newState);
 
 			return newState;
 

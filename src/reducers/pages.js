@@ -14,14 +14,13 @@ const pages = (state = initialState, action) => {
 		...state
 	};
 	switch (action.type) {
+
 		case ACTION_EVALUATIONS_FETCH:
 			newState.evaluationList = {
 				data: mapEntitiesToRelationData(action.payload.data),
 				links: action.payload.links,
 				meta: action.payload.meta,
 			};
-
-			console.log('pages reducer: ACTION_EVALUATIONS_FETCH', state, action, newState);
 
 			return newState;
 
