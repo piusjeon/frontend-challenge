@@ -15,6 +15,7 @@ const pulses = (state = initialState, action) => {
 	switch (action.type) {
 
 		case ACTION_EVALUATIONS_GET:
+
 			if (!action.payload.included)
 				return state;
 

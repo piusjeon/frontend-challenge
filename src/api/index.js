@@ -12,8 +12,9 @@ const mapParamsToQueryString = params => {
 	if (!isEmpty(params)) {
 		queryString += '?';
 
-		for (let param of Object.entries(params))
-			queryString += param + '=' + encodeURIComponent(params[param])
+		for (let param in params)
+			if (params.hasOwnProperty(param))
+				queryString += param + '=' + encodeURIComponent(params[param]);
 	}
 
 	return queryString

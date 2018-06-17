@@ -185,4 +185,7 @@ the page). This is the power of Redux/normalisation.
 the action payload. if it exists, it adds the pulse tot he store in an immutable/normalised way.
 - commit changes
 
+## Sunday 4.30pm
+
+- fixed error in api/index mapParamsToQueryString
 
