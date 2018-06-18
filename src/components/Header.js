@@ -1,17 +1,29 @@
 import React, {Component} from 'react'
-import logo from '../images/logo.svg'
-import '../styles/App.css'
-import {Link} from "react-router-dom";
+import styled from 'styled-components'
+import LogoSVG from '../images/LogoSVG'
 
 class Header extends Component {
 	render() {
 		return (
-			<div className="App-header">
-				<img src={logo} className="App-logo" alt="logo"/>
-				<Link to="/">Evaluations</Link>
-			</div>
+			<Container>
+				<Logo/>
+			</Container>
 		);
 	}
 }
+
+const Container = styled.div`
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    height: 70px;
+    padding: 0 25px;
+`;
+
+const Logo = styled(LogoSVG)`
+	background: transparent;
+	height: 48px;
+	width: 48px;
+`;
 
 export default Header

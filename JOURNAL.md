@@ -213,4 +213,43 @@ the action payload. if it exists, it adds the pulse tot he store in an immutable
 - handle closing of modal on clsoe button or successful submit
 - commit changes
 
+## Monday 18 Jun 2018
+
+### 9.00pm
+- start styling 
+- `npm i styled-components --save`
+- read guide on styled-components
+- `Button.extend` OMG! Best!
+- Styling Header
+- download and export to Zeplin to quickly get spacing
+- styled header
+- style app containers
+- give the body a background
+- don't bother with making css reusable until you start repeating rules.
+- use css vars for colors
+- try to import SVGs properly to use as components
+- react-svg is not good. `npm uninstall react-svg --save`
+- use `npm i react-svg-loader --save-dev`
+- react-svg-loader has an svgo option. VERY GOOD. use in production
+- having problems with react-svg-loader. look into this later
+- run `npm uninstall react-svg-loader --save-dev`
+- use svgr instead `npm i @svgr/cli -g`
+- usage: `svgr < ./doc/files/logo.svg > src/images/TestSVG.js` creates a React Component with SVG content
+- works well. svgr all images.
+- SVGs didn't render well. Narrowed it down to Sketch's very sketchy way of exporting svgs.
+- fixed the plus.svg by following advice from [this article](https://medium.com/sketch-app-sources/exploring-ways-to-export-clean-svg-icons-with-sketch-the-correct-way-752e73ec4694)
+- I also removed the `<def/><use/>` pattern and put the path directly into the svg body, removing the def
+- made AddButton and Chevron Button Reusable
+- Made Chevron button allow configurations for colors and rotation
+- finished styling Evaluation List page
+- fix warnings and commit changes
+
+
+
+
+
+
+
+
+
 
