@@ -215,7 +215,7 @@ the action payload. if it exists, it adds the pulse tot he store in an immutable
 
 ## Monday 18 Jun 2018
 
-### 9.00pm
+### 9.00pm - 2.00am
 - start styling 
 - `npm i styled-components --save`
 - read guide on styled-components
