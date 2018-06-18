@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import { Control, Form } from 'react-redux-form';
 import {doCreateEvaluation} from "../actions/evaluationsActions"
+import '../styles/App.css'
 
 const mapState = null;
 
