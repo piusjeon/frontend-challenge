@@ -3,7 +3,8 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import { Control, Form } from 'react-redux-form';
 import {doCreateEvaluation} from "../actions/evaluationsActions"
-import '../styles/App.css'
+import Modal from "./Modal"
+import styled from 'styled-components'
 
 const mapState = null;
 
@@ -11,55 +12,15 @@ const mapDispatch = {
 	doCreateEvaluation
 };
 
-
 class CreateEvaluationModal extends Component {
 	static propTypes = {
 		onCloseRequest: PropTypes.func.isRequired,
 		doCreateEvaluation: PropTypes.func.isRequired
 	};
 
-	constructor() {
-		super();
-
-		this.handleKeyUp = this.handleKeyUp.bind(this);
-		this.handleOutsideClick = this.handleOutsideClick.bind(this);
-	}
-
-	componentDidMount() {
-		window.addEventListener('keyup', this.handleKeyUp, false);
-		document.addEventListener('click', this.handleOutsideClick, false);
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener('keyup', this.handleKeyUp, false);
-		document.removeEventListener('click', this.handleOutsideClick, false);
-	}
-
 	get onCloseRequest() {
 		return this.props.onCloseRequest
 	}
-
-	// Handle the key press event.
-	handleKeyUp(e) {
-		const keys = {
-			27: () => {
-				e.preventDefault();
-				this.onCloseRequest();
-				window.removeEventListener('keyup', this.handleKeyUp, false);
-			},
-		};
-
-		if (keys[e.keyCode]) { keys[e.keyCode](); }
-	}
-
-	handleOutsideClick(e) {
-		if (!(this.modal)) {
-			if (!this.modal.contains(e.target)) {
-				this.onCloseRequest();
-			}
-		}
-	}
-
 
 	handleSubmit(createEvaluationModel) {
 		this.props.doCreateEvaluation(createEvaluationModel)
@@ -70,37 +31,122 @@ class CreateEvaluationModal extends Component {
 
 	render() {
 		return (
-			<div className="modalOverlayContainer">
-				<div className="modal" ref={node => (this.modal = node)}>
-					<div className="modalContent">
+			<Modal onCloseRequest={this.onCloseRequest}>
 
-						<h2 className="modalContent__h2">Create a new</h2>
+				<Heading1>Create a new</Heading1>
+				<Heading2>Evaluation</Heading2>
 
-						<h1 className="modalContent__h1">Evaluation</h1>
+				<FormContainer>
+					<Form	model="createEvaluation" onSubmit={(createEvaluationModel) => this.handleSubmit(createEvaluationModel)}>
 
-						<Form	model="createEvaluation" onSubmit={(createEvaluationModel) => this.handleSubmit(createEvaluationModel)}>
+						<FormRow>
+							<FormLabel htmlFor="createEvaluation.name">Title</FormLabel>
+							<StyledTextControl model="createEvaluation.name" id="createEvaluation.name" placeholder="New Evaluation"/>
+						</FormRow>
 
-							<label htmlFor="createEvaluation.name">Title</label>
-							<Control.text model="createEvaluation.name" id="createEvaluation.name" />
+						<FormRow flex={true}>
+							<FormCol>
+								<FormLabel htmlFor="createEvaluation.maxRabiRate">Maximum Rabi Rate</FormLabel>
+								<StyledTextControl model="createEvaluation.maxRabiRate" id="createEvaluation.maxRabiRate" placeholder="0.0001" />
+							</FormCol>
+							<FormCol>
+								<FormLabel htmlFor="createEvaluation.polarAngle">Polar Angle</FormLabel>
+								<StyledTextControl model="createEvaluation.polarAngle" id="createEvaluation.polarAngle" placeholder="10" />
+							</FormCol>
+						</FormRow>
 
-							<label htmlFor="createEvaluation.maxRabiRate">Maximum Rabi Rate</label>
-							<Control.text model="createEvaluation.maxRabiRate" id="createEvaluation.maxRabiRate" />
-
-							<label htmlFor="createEvaluation.polarAngle">Polar Angle</label>
-							<Control.text model="createEvaluation.polarAngle" id="createEvaluation.polarAngle" />
-
-							<button type="submit">
+						<FormRow>
+							<SubmitButton>
 								Create Evaluation
-							</button>
+							</SubmitButton>
+						</FormRow>
 
-						</Form>
+					</Form>
+				</FormContainer>
 
-					</div>
-					<button	type="button" className="modal__button--close" onClick={this.onCloseRequest}>Cancel</button>
-				</div>
-			</div>
+			</Modal>
 		)
 	}
 }
+
+const Heading1 = styled.h1`
+  font-size: 14px;
+	font-weight: 400;
+  line-height: 2.4;
+  letter-spacing: 3.5px;
+  text-align: center;
+  color: var(--color-light-grey);
+  text-transform: uppercase;
+  margin: 0;
+`;
+
+const Heading2 = styled.h2`
+  font-size: 28px;
+	font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 5.6px;
+  text-align: center;
+  color: var(--color-grey);
+  text-transform: uppercase;
+  margin: 0;
+`;
+
+const FormContainer = styled.div`
+	width: 330px;
+	margin: 18px auto;
+	text-align: left;
+`;
+
+const FormRow = styled.div`
+	margin-top: 15px;
+	display: ${props => props.flex ? 'flex' : 'block'};
+`;
+
+const FormCol = styled.div`
+	width: 150px;
+	&:first-child {
+		margin-right: 30px;
+	}
+`;
+
+const FormLabel = styled.label`
+  font-size: 11px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  color: var(--color-grey);
+  text-transform: uppercase;
+`;
+
+const StyledTextControl = styled(Control.text)`
+  font-size: 14px;
+  font-weight: 300;
+	color: var(--color-dark-grey);
+  width: 100%;
+	height: 50px;
+  padding: 15px;
+	margin-top: 10px;
+	border: 1px solid #c5c5c5;
+	&::placeholder {
+	  font-style: italic;
+	  color: var(--color-light-grey);
+	}
+`;
+
+const SubmitButton = styled.button.attrs({
+	type: 'submit'
+})`
+  height: 42px;
+	width: 100%;
+  background-color: var(--color-violet);
+  text-transform: uppercase;
+	padding: 13px 12px;
+	color: white;
+	cursor: pointer;
+	border-radius: 3px;
+	font-size: 14px;
+`
 
 export default connect(mapState, mapDispatch)(CreateEvaluationModal)

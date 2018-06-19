@@ -271,8 +271,13 @@ the action payload. if it exists, it adds the pulse tot he store in an immutable
 shrunk the graph down using translate to make it look similar to the designs.
 - commit changes
 
-### 10.30pm
+### 10.30pm - 12:30pm
 - style create evaluation form
+- styled the form and fixed modal click out behaviour
+- commit changes
+
+### 12:30pm 
+
 
 
 
