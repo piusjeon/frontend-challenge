@@ -7,6 +7,17 @@ It will also be useful for myself in the future for my own projects.
 
 It will include a history of the steps I took, the challenges I faced and the decisions I made.
 
+
+Conclusion:
+With more time I would:
+- clean up the reducers to handle actions in a cleaner way.
+- create a pattern around entities so business logic, validation & initialisation can be defined and grouped in the 
+Entities classes.
+- I was add an 'isFetching' status to the page store and actions to show loaders while waiting.
+- write tests. 
+
+
+
 ## Tuesday, 12 Jun 2018
 
 ### 5.00pm - 5.10pm
