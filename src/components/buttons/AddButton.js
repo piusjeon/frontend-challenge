@@ -5,7 +5,7 @@ import PlusSVG from '../../images/PlusSVG'
 class AddButton extends Component {
 	render() {
 		return (
-			<Button type="button" {...this.props}>
+			<Button {...this.props}>
 				<PlusSVG/>
 			</Button>
 		)

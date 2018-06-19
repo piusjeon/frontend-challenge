@@ -13,6 +13,7 @@ class App extends Component {
 				<Header/>
 				<Switch>
 					<Route exact path="/" component={EvaluationsPage}/>
+					<Route exact path="/evaluations/" component={EvaluationsPage}/>
 					<Route path="/evaluations/:id" component={EvaluationPage}/>
 				</Switch>
 			</Container>

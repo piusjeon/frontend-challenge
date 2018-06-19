@@ -37,10 +37,12 @@ class EvaluationsPage extends Component {
 	}
 
 	handleOpenCreateEvaluationModal() {
+		// noinspection JSAccessibilityCheck
 		this.setState({ showModal: true })
 	}
 
 	handleCloseCreateEvaluationModal() {
+		// noinspection JSAccessibilityCheck
 		this.setState({ showModal: false })
 	}
 
@@ -48,6 +50,7 @@ class EvaluationsPage extends Component {
 		return this.props.data.map( ({id}) => id );
 	}
 
+	// Todo: This page needs a loading spinner to show the fetching state
 	render() {
 		return (
 			<Container>

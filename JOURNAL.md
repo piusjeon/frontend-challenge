@@ -244,6 +244,36 @@ the action payload. if it exists, it adds the pulse tot he store in an immutable
 - finished styling Evaluation List page
 - fix warnings and commit changes
 
+## Tuesday 19 Jun 2018
+
+### 5.40pm - 6.30pm
+- style View EvaluationPage
+- create a component which handles breadcrumbs
+- finished styling header
+
+### Dinner break
+
+### 7.15pm - 7.45pm
+- create pulse grid
+
+### Family stuff
+
+### 8.15pm - 9.15pm
+- style pulses in grid
+
+### 9.15pm - 10.30pm
+- install plotly.js `npm install plotly.js --save`
+- getting some severe security warnings with this library from `npm audit`
+- look into this later
+- initial try of plotting the pulses was an ugly mess
+- the problem was the size given to the graph.
+- I tweak the pulse box dimensions to display a good ratio, then i gave plotly a large layout size to work with. I then
+shrunk the graph down using translate to make it look similar to the designs.
+- commit changes
+
+### 10.30pm
+- style create evaluation form
+
 
 
 

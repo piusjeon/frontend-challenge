@@ -1,3 +1,4 @@
+/*noinspection CssUnknownTarget*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i');
 
 * {
@@ -18,4 +19,8 @@ body {
     --color-dark-grey: #250D2E;
     --color-danger: #B03060;
 
+}
+
+button {
+    outline: none;
 }

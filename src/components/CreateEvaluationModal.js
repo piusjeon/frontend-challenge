@@ -18,8 +18,8 @@ class CreateEvaluationModal extends Component {
 		doCreateEvaluation: PropTypes.func.isRequired
 	};
 
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 
 		this.handleKeyUp = this.handleKeyUp.bind(this);
 		this.handleOutsideClick = this.handleOutsideClick.bind(this);

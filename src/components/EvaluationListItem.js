@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import ChevronButton from '../components/buttons/ChevronButton'
 import {Link} from "react-router-dom"
-import {ENDPOINT_EVALUATIONS} from "../api/endpoints"
 import styled from 'styled-components'
 import numeral from 'numeral'
 
@@ -28,6 +27,7 @@ class EvaluationListItem extends Component {
 	}
 
 	get polarAngle() {
+		// noinspection JSUnresolvedFunction
 		return numeral(this.evaluation.attributes.polar_angle).format('0.0000')
 	}
 
@@ -36,7 +36,7 @@ class EvaluationListItem extends Component {
 	}
 
 	get link() {
-		return ENDPOINT_EVALUATIONS + this.props.evaluation.id;
+		return '/evaluations/' + this.props.evaluation.id;
 	}
 
 	render() {

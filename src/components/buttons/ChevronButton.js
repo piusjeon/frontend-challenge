@@ -5,7 +5,7 @@ import ChevronRightSVG from '../../images/ChevronRightSVG'
 class ChevronButton extends Component {
 	render() {
 		return (
-			<Button type="button" {...this.props}>
+			<Button {...this.props}>
 				<ChevronRightSVG/>
 			</Button>
 		)
