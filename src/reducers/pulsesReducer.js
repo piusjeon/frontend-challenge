@@ -1,4 +1,4 @@
-import {ACTION_EVALUATIONS_GET} from '../actions/types'
+import {ACTION_EVALUATIONS_GET_SUCCESS} from '../actions/types'
 import {ENTITY_PULSE} from "../entities/types"
 
 const initialState = {
@@ -14,7 +14,7 @@ const pulsesReducer = (state = initialState, action) => {
 
 	switch (action.type) {
 
-		case ACTION_EVALUATIONS_GET:
+		case ACTION_EVALUATIONS_GET_SUCCESS:
 			if (!action.payload.included)
 				return state;
 

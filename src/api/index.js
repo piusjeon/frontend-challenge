@@ -23,9 +23,21 @@ const mapParamsToQueryString = params => {
 export const fetchApi = (path, params = {}, init = {}) => {
 	let url = API_ROOT + path + mapParamsToQueryString(params);
 
-	return fetch(url, {
-		headers: defaultHeaders,
-		...init
+	return new Promise((resolve, reject) => {
+		fetch(url, {
+			headers: defaultHeaders,
+			...init
+		})
+			.then(res => {
+				if (res.ok) {
+					res.json().then( (data) => resolve(data) )
+				} else {
+					res.json().then( (data) => reject(data) )
+				}
+			})
+			.catch(res => {
+				reject(res)
+			})
 	})
 };
 
@@ -33,10 +45,22 @@ export const fetchApi = (path, params = {}, init = {}) => {
 export const postApi = (path, data = {}, params = {}, init = {}) => {
 	let url = API_ROOT + path + mapParamsToQueryString(params);
 
-	return fetch(url, {
-		method: 'post',
-		body: JSON.stringify(data),
-		headers: defaultHeaders,
-		...init
+	return new Promise((resolve, reject) => {
+		fetch(url, {
+			method: 'post',
+			body: JSON.stringify(data),
+			headers: defaultHeaders,
+			...init
+		})
+			.then(res => {
+				if (res.ok) {
+					res.json().then( (data) => resolve(data) )
+				} else {
+					res.json().then( (data) => reject(data) )
+				}
+			})
+			.catch(res => {
+				reject(res)
+			})
 	})
 };

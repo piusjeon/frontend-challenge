@@ -1,4 +1,4 @@
-import {ACTION_EVALUATIONS_CREATE, ACTION_EVALUATIONS_FETCH} from '../actions/types'
+import {ACTION_EVALUATIONS_CREATE_SUCCESS, ACTION_EVALUATIONS_FETCH_SUCCESS} from '../actions/types'
 import {mapEntitiesToRelationData, mapEntityToRelationData} from "../entities"
 
 const initialState = {
@@ -15,7 +15,7 @@ const pagesReducer = (state = initialState, action) => {
 	};
 	switch (action.type) {
 
-		case ACTION_EVALUATIONS_FETCH:
+		case ACTION_EVALUATIONS_FETCH_SUCCESS:
 			newState.evaluationList = {
 				data: mapEntitiesToRelationData(action.payload.data),
 				links: action.payload.links,
@@ -24,7 +24,7 @@ const pagesReducer = (state = initialState, action) => {
 
 			return newState;
 
-		case ACTION_EVALUATIONS_CREATE:
+		case ACTION_EVALUATIONS_CREATE_SUCCESS:
 			const newEvaluationRelation = mapEntityToRelationData(action.payload.data);
 
 			newState.evaluationList = {

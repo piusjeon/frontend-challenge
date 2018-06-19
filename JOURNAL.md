@@ -276,7 +276,14 @@ shrunk the graph down using translate to make it look similar to the designs.
 - styled the form and fixed modal click out behaviour
 - commit changes
 
-### 12:30pm 
+### 12:30pm - 3.30am
+- validate the form
+- Had a lot of trouble handling an error response because ES6's `fetch` api returns a success for all HTTP responses.
+Also had trouble because you can't chain `catches`. In JQuery's `$.ajax` implementation a non-2xx HTTP response rejects
+the ajax deferred and the fail's can be chained.
+- Also took me a very long time to figure out how to reset the damn form when using react-redux-form.
+- finished now. creating pull request.
+
 
 
 

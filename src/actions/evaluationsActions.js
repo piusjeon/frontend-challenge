@@ -1,22 +1,29 @@
-import {ACTION_EVALUATIONS_FETCH, ACTION_EVALUATIONS_GET, ACTION_EVALUATIONS_CREATE} from "./types"
+import {
+	ACTION_EVALUATIONS_FETCH_SUCCESS,
+	ACTION_EVALUATIONS_GET_SUCCESS,
+	ACTION_EVALUATIONS_CREATE_SUCCESS,
+	ACTION_EVALUATIONS_FETCH_FAIL,
+	ACTION_EVALUATIONS_GET_FAIL,
+	ACTION_EVALUATIONS_CREATE_FAIL
+} from "./types"
 import {ENDPOINT_EVALUATIONS} from "../api/endpoints"
 import {fetchApi, postApi} from "../api"
 import {ENTITY_EVALUATION} from "../entities/types";
+import {actions} from "react-redux-form";
 
 export const fetchEvaluations = () => dispatch => {
 	console.log('action fetchEvaluations: fetching...');
 
 	return fetchApi(ENDPOINT_EVALUATIONS)
-		.then(res => res.json())
-		.then(data => dispatch({
-			type: ACTION_EVALUATIONS_FETCH,
-			payload: data
+		.then(response => dispatch({
+			type: ACTION_EVALUATIONS_FETCH_SUCCESS,
+			payload: response
 		}))
-		.catch(res => {
-			console.error(res)
-		})
+		.catch(response => dispatch({
+			type: ACTION_EVALUATIONS_FETCH_FAIL,
+			payload: response
+		}))
 };
-
 
 export const getEvaluation = (id, includePulses = false) => dispatch => {
 	console.log('action getEvaluation: fetching...');
@@ -27,14 +34,14 @@ export const getEvaluation = (id, includePulses = false) => dispatch => {
 		params['include'] = 'pulses';
 
 	return fetchApi(ENDPOINT_EVALUATIONS + id + '/', params)
-		.then(res => res.json())
 		.then(data => dispatch({
-			type: ACTION_EVALUATIONS_GET,
+			type: ACTION_EVALUATIONS_GET_SUCCESS,
 			payload: data
 		}))
-		.catch(res => {
-			console.error(res)
-		})
+		.catch(data => dispatch({
+			type: ACTION_EVALUATIONS_GET_FAIL,
+			payload: data
+		}))
 };
 
 export const doCreateEvaluation = (createEvaluationModel) => dispatch => {
@@ -52,13 +59,16 @@ export const doCreateEvaluation = (createEvaluationModel) => dispatch => {
 	};
 
 	return postApi(ENDPOINT_EVALUATIONS, postData)
-		.then(res => res.json())
 		.then(data => dispatch({
-			type: ACTION_EVALUATIONS_CREATE,
+			type: ACTION_EVALUATIONS_CREATE_SUCCESS,
 			payload: data
 		}))
-		.catch(res => {
-			console.error(res)
-		})
-
+		.catch(data => dispatch({
+			type: ACTION_EVALUATIONS_CREATE_FAIL,
+			payload: data
+		}))
 };
+
+export const resetCreateEvaluationForm = () => dispatch => {
+	dispatch(actions.reset("createEvaluation"));
+}
