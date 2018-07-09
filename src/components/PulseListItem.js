@@ -5,43 +5,43 @@ import styled from 'styled-components'
 import PulsePlot from './PulsePlot'
 
 const mapState = (state, ownProps) => ({
-	pulse: state.pulses.entities[ownProps.pulseId]
+    pulse: state.pulses.entities[ownProps.pulseId]
 });
 
 const mapDispatch = {};
 
 class PulseListItem extends Component {
-	static propTypes = {
-		pulseId: PropTypes.string.isRequired,
-		pulse: PropTypes.object
-	};
+    static propTypes = {
+        pulseId: PropTypes.string.isRequired,
+        pulse: PropTypes.object
+    };
 
-	/**
-	 * @returns {Object}
-	 */
-	get pulse() {
-		return this.props.pulse
-	}
+    /**
+     * @returns {Object}
+     */
+    get pulse() {
+        return this.props.pulse
+    }
 
-	/**
-	 * @returns {string}
-	 */
-	get type() {
-		return this.pulse.attributes.type.replace(/_/g, ' ');
-	}
+    /**
+     * @returns {string}
+     */
+    get type() {
+        return this.pulse ? this.pulse.attributes.type.replace(/_/g, ' ') : ''
+    }
 
-	render() {
-		return (
-			<Container>
-				<Header title={this.type}>
-					<ColorCode/> <span>{this.type}</span>
-				</Header>
-				<PlotContainer>
-					<PulsePlot pulse={this.pulse}/>
-				</PlotContainer>
-			</Container>
-		)
-	}
+    render() {
+        return !!this.pulse && (
+            <Container>
+                <Header title={this.type}>
+                    <ColorCode/> <span>{this.type}</span>
+                </Header>
+                <PlotContainer>
+                    <PulsePlot pulse={this.pulse}/>
+                </PlotContainer>
+            </Container>
+        )
+    }
 }
 
 const Container = styled.div`
